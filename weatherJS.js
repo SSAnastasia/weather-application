@@ -21,19 +21,14 @@ function formatDate(date) {
   }
   
   function displayWeather(response) {
-    document.querySelector(".cityName").innerHTML = response.data.name;
-    document.querySelector("#description").innerHTML =
-      response.data.weather[0].main;
-    document.querySelector("#temperature").innerHTML = Math.round(
-      response.data.main.temp
-    );
-    document.querySelector("#wind").innerHTML = Math.round(
-      response.data.wind.speed
-    );
-    document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-    document.querySelector("#feelLike").innerHTML = Math.round(
-      response.data.main.feels_like
-    );
+      document.querySelector(".cityName").innerHTML = response.data.name;
+      document.querySelector("#description").innerHTML =response.data.weather[0].main;
+      document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
+      document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
+      document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+      document.querySelector("#feelLike").innerHTML = Math.round(response.data.main.feels_like);
+      document.querySelector("#icon").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+      celsiumTemperature = Math.round(response.data.main.temp);
   }
   
   function searchCity(city) {
@@ -62,23 +57,25 @@ function formatDate(date) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(searchLocation);
   }
-  
-  function showCelsTemp(event) {
+  function convertToCels(event) {
     event.preventDefault();
-    let currentTemp = document.querySelector(".temperature");
-    currentTemp.innerHTML = "20";
+    
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(celsiumTemperature);
   }
-  
-  function showFahrTemp(event) {
+
+  function convertToFahrenheit(event){
     event.preventDefault();
-    let currentTemp = document.querySelector(".temperature");
-    currentTemp.innerHTML = "68";
+    let temperatureElement = document.querySelector("#temperature");
+    let fahrTemp = (celsiumTemperature * 9)/5+32;
+    temperatureElement.innerHTML = Math.round(fahrTemp);
   }
+  let celsiumTemperature = null;
   
   let celsiumLink = document.querySelector("#celsium");
-  celsiumLink.addEventListener("click", showCelsTemp);
+  celsiumLink.addEventListener("click", convertToCels);
   let fahrenheitLink = document.querySelector("#fahrenheit");
-  fahrenheitLink.addEventListener("click", showFahrTemp);
+  fahrenheitLink.addEventListener("click", convertToFahrenheit);
   
   let dateElement = document.querySelector(".date");
   let now = new Date();
