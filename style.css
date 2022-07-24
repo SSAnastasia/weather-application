@@ -78,4 +78,6 @@ body {
     color: rgb(231, 237, 243);
     border-color: rgb(92, 147, 209);
   }
-  
+ .name, .code{
+  color: yellow;
+ }
