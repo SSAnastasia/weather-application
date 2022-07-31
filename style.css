@@ -16,12 +16,7 @@ body {
     color: beige;
     font-style: italic;
   }
-  #day1,
-  #day2,
-  #day3,
-  #day4,
-  #day5,
-  #day6 {
+  #day1,#day2,#day3,#day4,#day5,#day6 {
     text-align: center;
     background: radial-gradient(
       circle at 10% 20%,
@@ -63,12 +58,7 @@ body {
     border-color: rgb(92, 147, 209);
     border-radius: 10px;
   }
-  .weatherMenu {
-    position: relative;
-    top: 0;
-    left: 10;
-    padding: 15px;
-  }
+ 
   .days,
   .weeks {
     color: beige;
@@ -80,4 +70,13 @@ body {
   }
  .name, .code{
   color: yellow;
+ }
+ #cardForForecast{
+  max-width: 100px;
+  text-align: center;
+  background: radial-gradient(
+      circle at 10% 20%,
+      rgb(137, 210, 253) 0%,
+      rgb(255, 241, 188) 90%
+    );
  }
