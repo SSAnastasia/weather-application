@@ -41,15 +41,15 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `
-      <div class="card" id = "cardForForecast">
-        <div class="forecastDate"><b>${formatDay(forecastDay.dt)}</b></div>
+        <div class="card" id = "cardForForecast">
+        <div class="forecastDate"><h4><b>${formatDay(forecastDay.dt)}</b></h4></div>
         <div class="forecastTemp">
-          <span class="maxTemp"><b> ${Math.round(
+          <span class="maxTemp"><h4><b> ${Math.round(
             forecastDay.temp.max
-          )}°</b> </span>
-          <span class="minTemp"> <b>${Math.round(
+          )}°</b></h4> </span>
+          <span class="minTemp"><h4><b> ${Math.round(
             forecastDay.temp.min
-          )}°</b> </span>
+          )}°</b></h4> </span>
         </div>
         <div class = "forecastIcon">
         <img
@@ -57,7 +57,7 @@ function displayForecast(response) {
             forecastDay.weather[0].icon
           }@2x.png"
           alt=""
-          width="42"
+          width="80px"
         />
         </div>
       </div>
